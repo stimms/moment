@@ -34,6 +34,8 @@ jobs:
   - script: |
       npm install
       npm install -g grunt-cli
+      node --version
+      npm --version
     displayName: 'npm install'
 
   - script: grunt build:travis
