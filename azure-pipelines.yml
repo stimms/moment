@@ -39,5 +39,5 @@ jobs:
       npm --version
     displayName: 'npm install'
 
-  - script: grunt build:travis
+  - script: grunt
     displayName: 'grunt'
