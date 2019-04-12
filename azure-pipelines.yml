@@ -1,0 +1,40 @@
+trigger:
+- develop
+
+jobs:
+- job: Linux 
+  strategy:
+    matrix:
+      Node 4:
+        NODE_VERSION: '4.x'
+      Node 5:
+        NODE_VERSION: '5.x'
+      Node 6:
+        NODE_VERSION: '6.x'
+      Node 7:
+        NODE_VERSION: '7.x'
+      Node 8:
+        NODE_VERSION: '8.x'
+      Node 9:
+        NODE_VERSION: '9.x'
+      Node 10:
+        NODE_VERSION: '10.x'
+      Node 11:
+        NODE_VERSION: '11.x'
+  continueOnError: false
+  pool:
+    vmImage: 'ubuntu-16.04'
+
+  steps:
+  - task: NodeTool@0
+    inputs:
+      versionSpec: '$(NODE_VERSION)'
+    displayName: 'Install Node $(NODE_VERSION)'
+
+  - script: |
+      npm install
+      npm install -g grunt-cli
+    displayName: 'npm install'
+
+  - script: grunt build:travis
+    displayName: 'grunt build:travis'
