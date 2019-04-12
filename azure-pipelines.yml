@@ -40,4 +40,4 @@ jobs:
     displayName: 'npm install'
 
   - script: grunt build:travis
-    displayName: 'grunt'
+    displayName: 'grunt build:travis'
