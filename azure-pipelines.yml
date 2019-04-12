@@ -41,3 +41,5 @@ jobs:
 
   - script: grunt build:travis
     displayName: 'grunt build:travis'
+    env:
+      COVERALLS_REPO_TOKEN: $(COVERALLS_REPO_TOKEN)
