@@ -54,6 +54,7 @@
         "grunt-jscs": "latest",
         "grunt-karma": "latest",
         "grunt-nuget": "latest",
+        "grunt-qunit-junit": "latest",
         "grunt-string-replace": "latest",
         "karma": "latest",
         "karma-chrome-launcher": "latest",
