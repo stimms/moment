@@ -48,3 +48,8 @@ jobs:
     displayName: 'Publish Test Results'
     inputs:
       testResultsFiles: '_build/test-reports/*.xml'
+
+  - task: PublishBuildArtifacts@1
+    displayName: 'Publish Artifact: drop'
+    inputs:
+      PathtoPublish: '$(Build.SourcesDirectory)'
