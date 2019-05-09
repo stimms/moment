@@ -33,6 +33,7 @@ jobs:
   - task: NodeTool@0
     inputs:
       versionSpec: '$(NODE_VERSION)'
+      checkLatest: true
     displayName: 'Install Node $(NODE_VERSION)'
 
   - script: |
