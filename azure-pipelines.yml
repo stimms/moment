@@ -23,6 +23,8 @@ jobs:
         NODE_VERSION: '11.x'
       Node 12:
         NODE_VERSION: '12.x'
+      Node Latest:
+        NODE_VERSION: 'x'
   continueOnError: false
   pool:
     vmImage: 'ubuntu-16.04'
