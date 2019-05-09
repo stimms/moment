@@ -45,3 +45,47 @@ jobs:
     displayName: 'grunt build:travis'
     env:
       COVERALLS_REPO_TOKEN: $(COVERALLS_REPO_TOKEN)
+
+- job: Windows 
+  strategy:
+    matrix:
+      Node 4:
+        NODE_VERSION: '4.x'
+      Node 5:
+        NODE_VERSION: '5.x'
+      Node 6:
+        NODE_VERSION: '6.x'
+      Node 7:
+        NODE_VERSION: '7.x'
+      Node 8:
+        NODE_VERSION: '8.x'
+      Node 9:
+        NODE_VERSION: '9.x'
+      Node 10:
+        NODE_VERSION: '10.x'
+      Node 11:
+        NODE_VERSION: '11.x'
+      Node 12:
+        NODE_VERSION: '12.x'
+  continueOnError: false
+  pool:
+    vmImage: 'vs2017-win2016'
+
+  steps:
+  - task: NodeTool@0
+    inputs:
+      versionSpec: '$(NODE_VERSION)'
+    displayName: 'Install Node $(NODE_VERSION)'
+
+  - script: |
+      if [[ `npm -v` == 2* ]]; then npm i -g npm@3; fi
+      npm install
+      npm install -g grunt-cli
+      node --version
+      npm --version
+    displayName: 'npm install'
+
+  - script: grunt build:travis
+    displayName: 'grunt build:travis'
+    env:
+      COVERALLS_REPO_TOKEN: $(COVERALLS_REPO_TOKEN)
