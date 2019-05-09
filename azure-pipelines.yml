@@ -43,13 +43,3 @@ jobs:
     displayName: 'grunt build:travis'
     env:
       COVERALLS_REPO_TOKEN: $(COVERALLS_REPO_TOKEN)
-      
-  - task: PublishTestResults@2
-    displayName: 'Publish Test Results'
-    inputs:
-      testResultsFiles: '_build/test-reports/*.xml'
-
-  - task: PublishBuildArtifacts@1
-    displayName: 'Publish Artifact: drop'
-    inputs:
-      PathtoPublish: '$(Build.SourcesDirectory)'
