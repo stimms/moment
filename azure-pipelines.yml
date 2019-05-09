@@ -51,10 +51,6 @@ jobs:
 - job: Windows 
   strategy:
     matrix:
-      Node 4:
-        NODE_VERSION: '4.x'
-      Node 5:
-        NODE_VERSION: '5.x'
       Node 6:
         NODE_VERSION: '6.x'
       Node 7:
