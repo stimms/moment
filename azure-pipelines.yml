@@ -44,7 +44,7 @@ jobs:
   - task: PublishBuildArtifacts@1	
     displayName: 'Publish Artifact: drop'	
     inputs:	
-      PathtoPublish: '$(Build.SourcesDirectory)'
+      PathtoPublish: '$(Build.SourcesDirectory)/coverage'
 
 - job: Windows 
   strategy:
