@@ -79,6 +79,3 @@ jobs:
     env:
       COVERALLS_REPO_TOKEN: $(COVERALLS_REPO_TOKEN)
     displayName: 'grunt build:travis'
-
-  - script: ls -a /coverage
-    displayName: 'list files'
