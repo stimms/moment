@@ -37,14 +37,15 @@ jobs:
     displayName: 'npm install'
 
   - script: grunt build:travis
-    displayName: 'grunt build:travis'
     env:
       COVERALLS_REPO_TOKEN: $(COVERALLS_REPO_TOKEN)
+    displayName: 'grunt build:travis'
 
-  - task: PublishBuildArtifacts@1	
-    displayName: 'Publish Artifact: drop'	
-    inputs:	
-      PathtoPublish: '$(Build.SourcesDirectory)/coverage'
+  - task: PublishCodeCoverageResults@1
+    inputs:
+      codeCoverageTool: Cobertura
+      summaryFileLocation: '$(Build.SourcesDirectory)/coverage/cobertura-coverage.xml'
+    displayName: 'Publish code coverage'
 
 - job: Windows 
   strategy:
@@ -75,9 +76,9 @@ jobs:
     displayName: 'npm install'
 
   - script: grunt build:travis
-    displayName: 'grunt build:travis'
     env:
       COVERALLS_REPO_TOKEN: $(COVERALLS_REPO_TOKEN)
+    displayName: 'grunt build:travis'
 
   - script: ls -a /coverage
     displayName: 'list files'
