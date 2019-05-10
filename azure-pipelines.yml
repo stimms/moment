@@ -7,16 +7,22 @@ jobs:
     matrix:
       Node 4:
         NODE_VERSION: '4.x'
+        COVERAGE: 'false'
       Node 5:
         NODE_VERSION: '5.x'
+        COVERAGE: 'false'
       Node 6:
         NODE_VERSION: '6.x'
+        COVERAGE: 'false'
       Node 7:
         NODE_VERSION: '7.x'
+        COVERAGE: 'false'
       Node 8:
         NODE_VERSION: '8.x'
+        COVERAGE: 'false'
       Node 12:
         NODE_VERSION: '12.x'
+        COVERAGE: 'true'
   continueOnError: false
   pool:
     vmImage: 'ubuntu-16.04'
@@ -44,7 +50,16 @@ jobs:
     inputs:
       codeCoverageTool: Cobertura
       summaryFileLocation: '$(Build.SourcesDirectory)/coverage/cobertura-coverage.xml'
+    condition: and(succeeded(), eq(variables['COVERAGE'], 'true'))
     displayName: 'Publish code coverage'
+
+steps:
+- task: PublishCodeCoverageResults@1
+  displayName: 'Publish code coverage from $(Build.SourcesDirectory)/coverage/cobertura-coverage.xml'
+  inputs:
+    codeCoverageTool: Cobertura
+    summaryFileLocation: '$(Build.SourcesDirectory)/coverage/cobertura-coverage.xml'
+  condition: and(succeeded(), ne(variables['Build.SourceBranch'], 'refs/heads/master'))
 
 - job: Windows 
   strategy:
