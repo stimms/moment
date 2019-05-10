@@ -15,12 +15,6 @@ jobs:
         NODE_VERSION: '7.x'
       Node 8:
         NODE_VERSION: '8.x'
-      Node 9:
-        NODE_VERSION: '9.x'
-      Node 10:
-        NODE_VERSION: '10.x'
-      Node 11:
-        NODE_VERSION: '11.x'
       Node 12:
         NODE_VERSION: '12.x'
   continueOnError: false
@@ -59,12 +53,6 @@ jobs:
         NODE_VERSION: '7.x'
       Node 8:
         NODE_VERSION: '8.x'
-      Node 9:
-        NODE_VERSION: '9.x'
-      Node 10:
-        NODE_VERSION: '10.x'
-      Node 11:
-        NODE_VERSION: '11.x'
       Node 12:
         NODE_VERSION: '12.x'
   continueOnError: false
