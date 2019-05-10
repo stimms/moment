@@ -53,14 +53,6 @@ jobs:
     condition: and(succeeded(), eq(variables['COVERAGE'], 'true'))
     displayName: 'Publish code coverage'
 
-steps:
-- task: PublishCodeCoverageResults@1
-  displayName: 'Publish code coverage from $(Build.SourcesDirectory)/coverage/cobertura-coverage.xml'
-  inputs:
-    codeCoverageTool: Cobertura
-    summaryFileLocation: '$(Build.SourcesDirectory)/coverage/cobertura-coverage.xml'
-  condition: and(succeeded(), ne(variables['Build.SourceBranch'], 'refs/heads/master'))
-
 - job: Windows 
   strategy:
     matrix:
