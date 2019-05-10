@@ -175,7 +175,7 @@ module.exports = function (grunt) {
             'coveralls': {
                 command: 'npm run coveralls'
             },
-            'coverall-azure': {
+            'coveralls-azure': {
                 command: 'npm run coveralls:azure'
             }
         }
