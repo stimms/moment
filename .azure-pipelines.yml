@@ -58,12 +58,16 @@ jobs:
     matrix:
       Node 6:
         NODE_VERSION: '6.x'
+        COVERAGE: 'false'
       Node 7:
         NODE_VERSION: '7.x'
+        COVERAGE: 'false'
       Node 8:
         NODE_VERSION: '8.x'
+        COVERAGE: 'false'
       Node 12:
         NODE_VERSION: '12.x'
+        COVERAGE: 'false'
   continueOnError: false
   pool:
     vmImage: 'vs2017-win2016'
