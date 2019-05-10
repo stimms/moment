@@ -41,7 +41,7 @@ jobs:
     env:
       COVERALLS_REPO_TOKEN: $(COVERALLS_REPO_TOKEN)
 
-  - script: ls -a
+  - script: ls -a /coverage
     displayName: 'list files'
 
 - job: Windows 
@@ -77,5 +77,5 @@ jobs:
     env:
       COVERALLS_REPO_TOKEN: $(COVERALLS_REPO_TOKEN)
 
-  - script: ls -a
+  - script: ls -a /coverage
     displayName: 'list files'
