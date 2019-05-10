@@ -40,6 +40,9 @@ jobs:
       node --version
       npm --version
     displayName: 'npm install'
+    
+  - script: printenv
+    displayName: 'Print environment variables'
 
   - script: grunt build:azure
     env:
