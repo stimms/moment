@@ -176,7 +176,13 @@ module.exports = function (grunt) {
                 command: 'npm run coveralls'
             },
             'coveralls-azure': {
-                command: 'npm run coveralls:azure'
+                command: function() {
+                    if (process.env.COVERAGE == 'true') {
+                        return 'npm run coveralls';
+                    } else {
+                        return 'echo skipping code coverage';
+                    }
+                }
             }
         }
 
