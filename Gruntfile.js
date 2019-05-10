@@ -174,6 +174,9 @@ module.exports = function (grunt) {
             },
             'coveralls': {
                 command: 'npm run coveralls'
+            },
+            'coverall-azure': {
+                command: 'npm run coveralls:azure'
             }
         }
 
@@ -203,6 +206,7 @@ module.exports = function (grunt) {
 
     // travis build task
     grunt.registerTask('build:travis', ['default', 'exec:coveralls']);
+    grunt.registerTask('build:azure', ['default', 'exec:coveralls-azure']);
     grunt.registerTask('meteor-publish', ['exec:meteor-init', 'exec:meteor-publish', 'exec:meteor-cleanup']);
 
     // Task to be run when releasing a new version
