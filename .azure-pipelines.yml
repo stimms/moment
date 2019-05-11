@@ -1,29 +1,29 @@
 trigger:
 - develop
 
+variables:
+  COVERALLS_GIT_BRANCH: '$(Build.SourceBranchName)'
+  COVERALLS_GIT_COMMIT: '$(Build.SourceVersion)'
+  COVERALLS_SERVICE_JOB_ID: '$(Build.BuildId)'
+  COVERALLS_SERVICE_NAME: 'Azure Pipelines'
+
 jobs:
 - job: Linux 
   strategy:
     matrix:
       Node 4:
         NODE_VERSION: '4.x'
-        COVERAGE: 'false'
       Node 5:
         NODE_VERSION: '5.x'
-        COVERAGE: 'false'
       Node 6:
         NODE_VERSION: '6.x'
-        COVERAGE: 'false'
       Node 7:
         NODE_VERSION: '7.x'
-        COVERAGE: 'false'
       Node 8:
         NODE_VERSION: '8.x'
-        COVERAGE: 'false'
       Node 12:
         NODE_VERSION: '12.x'
         COVERAGE: 'true'
-  continueOnError: false
   pool:
     vmImage: 'ubuntu-16.04'
 
@@ -40,9 +40,6 @@ jobs:
       node --version
       npm --version
     displayName: 'npm install'
-    
-  - script: printenv
-    displayName: 'Print environment variables'
 
   - script: grunt build:azure
     env:
@@ -61,17 +58,12 @@ jobs:
     matrix:
       Node 6:
         NODE_VERSION: '6.x'
-        COVERAGE: 'false'
       Node 7:
         NODE_VERSION: '7.x'
-        COVERAGE: 'false'
       Node 8:
         NODE_VERSION: '8.x'
-        COVERAGE: 'false'
       Node 12:
         NODE_VERSION: '12.x'
-        COVERAGE: 'false'
-  continueOnError: false
   pool:
     vmImage: 'vs2017-win2016'
 
